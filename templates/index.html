@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Visual Hash by ammfat</title>
+</head>
+
+<body>
+    <div class="container py-1" style="max-width: 600px">
+        <main>
+            <div class="py-2 text-center">
+                <i class="bi bi-bounding-box text-success" style="font-size: 57px;"></i>
+                <h2>Visual Hash</h2>
+                <p class="lead">Visualize a String into 5x5 Grid Image.</p>
+            </div>
+
+            <form action="/render" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" name="istring" required class="form-control form-control-lg"
+                        placeholder="Coba Masukkan Nama Kamu ^^" aria-label="Coba Masukkan Nama Kamu ^^">
+                    <button class="btn btn-success" type="submit"><i class="bi bi-plus-lg me-2"></i>
+                        Create
+                    </button>
+                </div>
+            </form>
+
+            {% if save_success %}
+            <div class="py-2 text-center">
+                <h4>Save Success!</h4>
+            </div>
+            {% endif %}
+
+            {% if image_name %}
+            <div class="py-2 text-center">
+                <p class="lead"><strong>{{ image_title }}</strong></p>
+                <img src="{{ url_for('static', filename='img/') }}{{ image_name }}" height="220" alt="{{ image_name }}" title="{{ image_title }}" id='identicon'>
+            </div>
+            
+            <form action="/save" method="POST">
+                <div class="mb-3 py-3 text-center">
+                    <button class="btn btn-success" type="submit"><i class="bi bi-save me-2"></i>
+                        Save
+                    </button>
+                </div>
+            </form
+            {% endif %}
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+    
+</body>
+</html>
