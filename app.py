@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, render_template, se
 from identicon import Identicon
 from os import path
 
-save_success = False
 istring = ''
 
 idcon = Identicon(istring)
@@ -19,7 +18,7 @@ def home():
 
         return render_template('index.html', image_name=app.config['DEFAULT_FILENAME'], image_title=title)
     else:
-        return render_template('index.html', save_success=save_success)
+        return render_template('index.html')
     
 
 @app.route('/render', methods=['POST'])
@@ -34,7 +33,7 @@ def render():
     return redirect('/')
 
 
-@app.route('/save', methods=['GET', 'POST'])
+@app.route('/download', methods=['GET', 'POST'])
 def download():
     filename = save()
     full_path = path.join(app.root_path, app.config['FILE_PATH'])
@@ -48,5 +47,7 @@ def save():
     filename = istring + '.png'
     file_path = path.join(app.config['FILE_PATH'], filename)
     idcon.save_image(file_path)
+
+    istring = ''
 
     return filename

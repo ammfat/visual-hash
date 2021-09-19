@@ -17,7 +17,8 @@
             <div class="py-2 text-center">
                 <i class="bi bi-bounding-box text-success" style="font-size: 57px;"></i>
                 <h2>Visual Hash</h2>
-                <p class="lead">Visualize a String into 5x5 Grid Image.</p>
+                <p class="lead">Visualize a String into 5x5 Grid Image. <br>
+                By <a href="https://github.com/ammfat" style="text-decoration: none;">Ahmad Maulana</a>.</p>
             </div>
 
             <form action="/render" method="POST">
@@ -29,26 +30,21 @@
                     </button>
                 </div>
             </form>
-
-            {% if save_success %}
-            <div class="py-2 text-center">
-                <h4>Save Success!</h4>
-            </div>
-            {% endif %}
-
+            
             {% if image_name %}
             <div class="py-2 text-center">
                 <p class="lead"><strong>{{ image_title }}</strong></p>
                 <img src="{{ url_for('static', filename='img/') }}{{ image_name }}" height="220" alt="{{ image_name }}" title="{{ image_title }}" id='identicon'>
             </div>
             
-            <form action="/save" method="POST">
+            <form action="/download" method="POST">
                 <div class="mb-3 py-3 text-center">
                     <button class="btn btn-success" type="submit"><i class="bi bi-fullscreen me-2"></i>
                         View
                     </button>
                 </div>
             </form
+
             {% endif %}
         </main>
     </div>

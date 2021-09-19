@@ -1,5 +1,5 @@
 # Flask's debugging mode
-DEBUG = True
+DEBUG = False
 
 # File configuration
 FILE_PATH = 'static/img'
