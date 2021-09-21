@@ -33,8 +33,8 @@ def render():
     return redirect('/')
 
 
-@app.route('/download', methods=['GET', 'POST'])
-def download():
+@app.route('/view', methods=['GET', 'POST'])
+def view():
     filename = save()
     full_path = path.join(app.root_path, app.config['FILE_PATH'])
 
@@ -47,7 +47,7 @@ def save():
     filename = istring + '.png'
     file_path = path.join(app.config['FILE_PATH'], filename)
     idcon.save_image(file_path)
-
+    
     istring = ''
 
     return filename

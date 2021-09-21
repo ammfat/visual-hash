@@ -18,13 +18,13 @@
                 <i class="bi bi-bounding-box text-success" style="font-size: 57px;"></i>
                 <h2>Visual Hash</h2>
                 <p class="lead">Visualize a String into 5x5 Grid Image. <br>
-                By <a href="https://github.com/ammfat" style="text-decoration: none;">Ahmad Maulana</a>.</p>
+                By <a href="https://github.com/ammfat/visual-hash" style="text-decoration: none;">Ahmad Maulana</a>.</p>
             </div>
 
             <form action="/render" method="POST">
                 <div class="input-group mb-3">
                     <input type="text" name="istring" required class="form-control form-control-lg"
-                        placeholder="Coba Masukkan Nama Kamu ^^" aria-label="Coba Masukkan Nama Kamu ^^">
+                        placeholder="Try Enter Your Name ^^" aria-label="Try Enter Your Name ^^">
                     <button class="btn btn-success" type="submit"><i class="bi bi-plus-lg me-2"></i>
                         Create
                     </button>
@@ -37,7 +37,7 @@
                 <img src="{{ url_for('static', filename='img/') }}{{ image_name }}" height="220" alt="{{ image_name }}" title="{{ image_title }}" id='identicon'>
             </div>
             
-            <form action="/download" method="POST">
+            <form action="/view" method="POST">
                 <div class="mb-3 py-3 text-center">
                     <button class="btn btn-success" type="submit"><i class="bi bi-fullscreen me-2"></i>
                         View
